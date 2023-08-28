@@ -13,7 +13,7 @@
 <?php
 
 $nom = $avatar = $mdp = $mdpc = $email = $naissance = $transport = $sex =   "";
-$nomErreur = $mdpErreur = $avatarErreur = $emailErreur =  "Erreur";
+$nomErreur = $mdpErreur = $avatarErreur = $emailErreur =  "";
 $erreur = false;
 
 if ($_SERVER['REQUEST_METHOD'] == "POST"){
@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
     }
 
     if(empty($_POST["mdp"])){
-        $nomErreur = "Le nom ne peut pas être vide";
+        $mdpErreur = "Le mdp es vide";
         $erreur  = true;
     }
     else{
@@ -93,6 +93,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
         <div class="row">
             <div class="col-12">
                 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+
+                
                     <div class="form-group">
                         <label for="">Nom</label>
                         <input type="text" name="nom" class="form.control" placeholder="name" value="<?php echo $nom ?>" >   
@@ -100,7 +102,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
 
                     <div class="form-group">
                         <label for="">MDP</label>
-                        <input type="password" name="mdp" class="form.control" placeholder="name" value="<?php echo $mdp ?>" >   
+                        <input type="password" name="mdp" class="form.control" placeholder="<?php echo $mdpErreur ?>" value="<?php echo $mdp ?>" >   
                     </div>
 
                     <div class="form-group">
@@ -118,6 +120,13 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
                         <input type="text" name="avatar" class="form.control" placeholder="name" value="<?php echo $avatar ?>" >   
                     </div>
 
+
+
+
+
+
+
+
                     <div class="form-group">
                         <label for="">Homme</label>
                         <input type="radio" name="sex" class="form-check-input" placeholder="Sexe" value="homme" id="bouton" require>   
@@ -133,12 +142,12 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
                     </div>
 
                     <div class="form-group">
-                    <select class="custom-select" name="transport">
+                    <select class="custom-select" >
                         <option >Moyen de transport</option>
-                        <option value="Auto">Auto</option>
-                        <option value="Autobus">Autobus</option>
-                        <option value="Marche">Marche</option>
-                        <option value="Velo">Velo</option>
+                        <option name="transport" value="Auto">Auto</option>
+                        <option name="transport" value="Autobus">Autobus</option>
+                        <option name="transport" value="Marche">Marche</option>
+                        <option name="transport" value="Velo">Velo</option>
                     </select>
                     </div>
 
