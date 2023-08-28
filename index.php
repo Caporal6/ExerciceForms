@@ -64,7 +64,12 @@
                     </div>
 
                     
-
+                    <div class="form-group">
+                        <input type="submit">   
+                    </div>
+                    <div class="form-group">
+                        <input type="submit">   
+                    </div>
 
                     <div class="form-group">
                         <input type="submit">   
